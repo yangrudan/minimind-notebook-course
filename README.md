@@ -11,6 +11,13 @@
 
 第一节从 ModelScope 获取 `gongjy/minimind_dataset` 的 `pretrain_t2t_mini.jsonl`，截取最多 512 条样本做练习；第二节获取 `sft_t2t_mini.jsonl`，筛选 256 条短实验数据，并从第一节的权重继续训练。两个完整文件首次下载分别约 1.2 GB 和 1.7 GB；短实验只训练截取后的数据。课程运行产生的数据和权重保存在 `work/`，不进入 Git。
 
+## 理论阅读
+
+- [MiniMind 模型结构](docs/01_model.md)：token、因果注意力、GQA、RoPE 与模型输出。
+- [Pretrain 原理](docs/02_pretrain.md)：next-token 损失、数据处理、优化步骤与检查点。
+
+建议先读理论，再逐格运行 [Pretrain Notebook](notebooks/01_pretrain.ipynb)。
+
 ## 运行条件
 
 - Linux、Python 3.10+，有 CUDA 支持的 PyTorch；推荐单张 24 GB GPU。
