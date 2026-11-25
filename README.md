@@ -18,7 +18,27 @@
 - 能访问 GitHub 获取 [MiniMind 源码](https://github.com/jingyaogong/minimind)，能访问 ModelScope 获取[数据集](https://modelscope.cn/datasets/gongjy/minimind_dataset)。
 - Notebook 检查所需包；只按提示安装缺失项，不自动替换 CUDA/PyTorch。
 
-先打开 `notebooks/01_pretrain.ipynb`，再打开 `notebooks/02_sft.ipynb`，各节按顺序运行。如果 ModelScope Gallery 将项目复制到 Notebook 工作空间，先在首个代码单元确认 `COURSE_ROOT` 指向本仓库根目录。
+先打开 `notebooks/01_pretrain.ipynb`，再打开 `notebooks/02_sft.ipynb`，各节按顺序运行。
+
+## 在当前服务器逐格运行
+
+在课程目录打开一个终端，启动课程专用 JupyterLab。命令中的 GPU 6 是服务器上的物理编号；只在这台多卡服务器上使用这个编号。
+
+```bash
+cd /home/yang/data2/workspace/minimind-notebook-course
+CUDA_VISIBLE_DEVICES=6 JUPYTER_PATH="$PWD/work/jupyter-venv/share/jupyter" \
+  work/jupyter-venv/bin/jupyter lab --no-browser --ip=0.0.0.0 --port=8890 --ServerApp.allow_root=True
+```
+
+![00](assets/00.png)
+
+在本地浏览器打开启动日志里的 `http://127.0.0.1:8890/lab?token=...`。
+
+打开 `notebooks/01_pretrain.ipynb`，右上角选择 **MiniMind Course** 内核。
+
+![01](assets/01.png)
+
+若想从头观察过程，选择 **Kernel → Restart Kernel and Clear All Outputs**，随后逐格按 `Shift+Enter`；完成后再打开 `02_sft.ipynb`。最后保存 Notebook。已有输出来自课程验证运行，可以先查看。
 
 ## 课程约定
 
